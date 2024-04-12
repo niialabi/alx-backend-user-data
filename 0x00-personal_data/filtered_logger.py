@@ -25,6 +25,8 @@ def filter_datum(fields: List[str],
             str: The message with sensitive fields redacted.
     """
     for field in fields:
-        pattern = re.compile(f"{field}=([^;]*)")
-        message = re.sub(pattern, f"{field}={redaction}", message)
+        escaped_field = re.escape(field)
+        pattern = re.compile(fr'{escaped_field}=.*?{re.escape(separator)}')
+        replacement = f'{field}={redaction}{separator}'
+        message = re.sub(pattern, replacement, message)
     return message
