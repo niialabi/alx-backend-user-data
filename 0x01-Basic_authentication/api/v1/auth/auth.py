@@ -11,7 +11,16 @@ class Auth():
                      path: str,
                      excluded_paths: List[str]) -> bool:
         """ returns path if not excluded """
-        return path not in excluded_paths
+        if path is None or not excluded_paths:
+            return True
+
+        path = path.rstrip('/')
+
+        for excluded_path in excluded_paths:
+            excluded_path = excluded_path.rstrip('/')
+            if path == excluded_path:
+                return False
+        return True
 
     def authorization_header(self, request=None) -> str:
         """ get auth from flask obj """
