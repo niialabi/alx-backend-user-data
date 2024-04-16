@@ -23,6 +23,7 @@ elif os.getenv("AUTH_TYPE") == "basic_auth":
 
     auth = BasicAuth()
 
+
 @app.before_request
 def authentication():
     """Perform authentication checks before handling each request."""
@@ -56,6 +57,7 @@ def forbidden(error) -> str:
     """ request forbidden handler
     """
     return jsonify({"error": "Forbidden"}), 403
+
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
