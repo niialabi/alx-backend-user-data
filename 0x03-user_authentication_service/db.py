@@ -1,3 +1,4 @@
+#!/usr/bin/env python3Z
 """DB module
 """
 from sqlalchemy import create_engine
