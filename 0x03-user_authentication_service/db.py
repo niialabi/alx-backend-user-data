@@ -55,5 +55,5 @@ class DB:
         for key, value in kwargs.items():
             if not hasattr(User, key):
                 raise ValueError()
-            user_to_update.key = value
+            setattr(user_to_update, key, value)
         self._session.commit()
