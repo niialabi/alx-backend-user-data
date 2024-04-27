@@ -14,29 +14,36 @@ def register_user(email: str, password: str) -> None:
     """Register a new user with the given email and password."""
     pass
 
+
 def log_in_wrong_password(email: str, password: str) -> None:
     """Attempt to log in with the provided email and an incorrect password."""
     pass
 
+
 def profile_unlogged() -> None:
-    """Access the profile endpoint without authentication, expecting a 403 error."""
+    """Access the profile endpoint without auth, expecting a 403 error."""
     pass
 
+
 def log_in(email: str, password: str) -> str:
-    """Log in using the provided email and password, returning the session ID."""
+    """Log in using the provided email and password, ret the ses ID."""
     return None
+
 
 def profile_logged(session_id: str) -> None:
     """Access the profile endpoint with a valid session ID."""
     pass
 
+
 def log_out(session_id: str) -> None:
     """Log out the user identified by the provided session ID."""
     pass
 
+
 def reset_password_token(email: str) -> str:
     """Request a password reset token for the given email."""
     return None
+
 
 def update_password(email: str, reset_token: str, new_password: str) -> None:
     """
